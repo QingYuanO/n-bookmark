@@ -7,10 +7,11 @@ import { Github, PanelLeft } from 'lucide-react';
 
 import AppBreadcrumb from '@/components/AppBreadcrumb';
 import AsideNav from '@/components/AsideNav';
-import SearchInput from '@/components/SearchInput';
+import SearchInput, { SkeletonSearchInput } from '@/components/SearchInput';
 import ThemeToggleBtn from '@/components/ThemeToggleBtn';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Layout(props: { children: React.ReactNode }) {
   const { children } = props;
@@ -48,7 +49,7 @@ export default function Layout(props: { children: React.ReactNode }) {
           </Sheet>
 
           <AppBreadcrumb />
-          <Suspense>
+          <Suspense fallback={<SkeletonSearchInput />}>
             <SearchInput />
           </Suspense>
           <Button variant="outline" size="icon" className="overflow-hidden rounded-full">

@@ -5,9 +5,10 @@ import { useSearchParams } from 'next/navigation';
 import { bookmarkLinks } from '@/data';
 import { Ghost } from 'lucide-react';
 
-import BookmarkLinkCard from '@/components/BookmarkLinkCard';
+import BookmarkLinkCard, { SkeletonBookmarkLinkCard } from '@/components/BookmarkLinkCard';
 import CardWrap from '@/components/CardWrap';
 import { Card } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 
 function SearchParamsPage() {
   const searchParams = useSearchParams();
@@ -33,9 +34,19 @@ function SearchParamsPage() {
   );
 }
 
+const SkeletonContent = () => {
+  return (
+    <CardWrap className="h-[calc(100vh-8rem)] sm:h-[calc(100vh-8rem)]">
+      {Array.from({ length: 54 }, (_, index) => index).map((_, index) => (
+        <SkeletonBookmarkLinkCard key={index} />
+      ))}
+    </CardWrap>
+  );
+};
+
 export default function Page() {
   return (
-    <Suspense>
+    <Suspense fallback={<SkeletonContent />}>
       <SearchParamsPage />
     </Suspense>
   );

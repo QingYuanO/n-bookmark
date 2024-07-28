@@ -6,6 +6,7 @@ import { Bookmark } from 'lucide-react';
 
 import BookmarkLinkTooltip from './BookmarkLinkTooltip';
 import { Card, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Skeleton } from './ui/skeleton';
 
 export default function BookmarkLinkCard({ bookmarkLink }: { bookmarkLink: BookmarkLink }) {
   return (
@@ -30,3 +31,17 @@ export default function BookmarkLinkCard({ bookmarkLink }: { bookmarkLink: Bookm
     </Card>
   );
 }
+
+export const SkeletonBookmarkLinkCard = () => {
+  return (
+    <Card className="col-span-1">
+      <CardHeader className="px-2.5 py-4">
+        <CardTitle className="flex w-full cursor-pointer items-center">
+          <Skeleton className="mr-1 size-4 rounded-full" />
+          <Skeleton className="h-4 w-full" />
+        </CardTitle>
+        <Skeleton className="h-4 w-full" />
+      </CardHeader>
+    </Card>
+  );
+};

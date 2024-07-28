@@ -55,7 +55,7 @@ export default function Page(props: PageProps) {
         <BookmarkList bks={bks} />
       </TabsContent>
       {folder.map(item => {
-        if (item.type === 'bookmark') return;
+        if (item.type === 'bookmark') return null;
         const bookmark = item.children.filter(item => item.type === 'bookmark');
         return (
           <TabsContent key={item.folderId} value={item.folderId}>
