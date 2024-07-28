@@ -1,16 +1,10 @@
-import type { Metadata } from 'next';
+'use client';
+
 import { bookmarkLinks } from '@/data';
-import APP_CONFIG from '@/data/config';
 import { Ghost } from 'lucide-react';
 
 import BookmarkLinkCard from '@/components/BookmarkLinkCard';
 import { Card } from '@/components/ui/card';
-
-export const metadata: Metadata = {
-  title: `${APP_CONFIG.title} | Search`,
-  description: APP_CONFIG.description,
-  keywords: ['bookmark', 'navigation', 'navigation search'],
-};
 
 export default function Page(props: { searchParams: { word?: string } }) {
   const {
