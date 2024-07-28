@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { bookmarkLinks } from '@/data';
 import APP_CONFIG from '@/data/config';
 import { Ghost } from 'lucide-react';
 
 import BookmarkLinkCard from '@/components/BookmarkLinkCard';
-import BookmarkLinkTooltip from '@/components/BookmarkLinkTooltip';
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 
 export const metadata: Metadata = {
   title: `${APP_CONFIG.title} | Search`,
