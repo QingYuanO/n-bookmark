@@ -1,3 +1,5 @@
+'use client';
+
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -121,10 +123,10 @@ const createAnimatedNodes = (args: ReducedValue, word: string, index: number): R
     'ease-minor-spring fill-mode-forwards inline-block opacity-0 transition-all',
     {
       // Determine the animation direction
-      ['animate-[reveal-down] opacity-1 ']: !isUp && !blur,
-      ['animate-[reveal-up] opacity-1 ']: isUp && !blur,
-      ['animate-[reveal-down,content-blur] opacity-1 ']: !isUp && blur,
-      ['animate-[reveal-up,content-blur] opacity-1 ']: isUp && blur,
+      ['opacity-1 animate-[reveal-down]']: !isUp && !blur,
+      ['opacity-1 animate-[reveal-up]']: isUp && !blur,
+      ['opacity-1 animate-[reveal-down,content-blur]']: !isUp && blur,
+      ['opacity-1 animate-[reveal-up,content-blur]']: isUp && blur,
     },
     args.className
   );

@@ -1,6 +1,3 @@
-'use client';
-
-import SlackIntro from '@/components/animata/hero/slack-intro';
 import WaveReveal from '@/components/animata/text/wave-reveal';
 import { Card } from '@/components/ui/card';
 
