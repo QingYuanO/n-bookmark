@@ -1,5 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next';
-import { Bookmark, getBookmarkByFolderIds, getBreadcrumb } from '@/data';
+import { Bookmark, getBookmarkByFolderIds, getBreadcrumb, getDynamicsRouteParams } from '@/data';
 import APP_CONFIG from '@/data/config';
 import { Bookmark as BookmarkIcon } from 'lucide-react';
 
@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: PageProps, parent: ResolvingM
     description: `Bookmark navigation including ${breadcrumbName.join('-')}`,
     keywords: breadcrumbName,
   };
+}
+
+export async function generateStaticParams() {
+  return getDynamicsRouteParams().map(item => ({ folderId: item }));
 }
 
 export default function Page(props: PageProps) {

@@ -135,3 +135,20 @@ export const getBookmarkByFolderIds = (folderIds: string[]) => {
 
   return getData(0, bookmarks);
 };
+
+export const getDynamicsRouteParams = () => {
+  const params: string[][] = [];
+  const getData = (folder: BookmarkFolderWithChildren, preParams: string[]) => {
+    const d = [...preParams, folder.folderId];
+    params.push([...preParams, folder.folderId]);
+    if (folder.children?.length) {
+      folder.children.forEach(item => {
+        getData(item, d);
+      });
+    }
+  };
+  bookmarkFolders.forEach(item => {
+    getData(item, []);
+  });
+  return params;
+};

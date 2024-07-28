@@ -1,15 +1,15 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { bookmarkLinks } from '@/data';
 import { Ghost } from 'lucide-react';
 
 import BookmarkLinkCard from '@/components/BookmarkLinkCard';
 import { Card } from '@/components/ui/card';
 
-export default function Page(props: { searchParams: { word?: string } }) {
-  const {
-    searchParams: { word },
-  } = props;
+export default function Page() {
+  const searchParams = useSearchParams();
+  const word = searchParams.get('word') ?? '';
   const filerBookmarkLinks = word
     ? bookmarkLinks.filter(item => item.name.toLocaleLowerCase().includes(word.toLocaleLowerCase()))
     : bookmarkLinks;
