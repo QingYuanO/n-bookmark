@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Metadata, ResolvingMetadata } from 'next';
 import { Bookmark, getBookmarkByFolderIds, getBreadcrumb, getDynamicsRouteParams } from '@/data';
 import APP_CONFIG from '@/data/config';
@@ -26,7 +27,7 @@ export async function generateStaticParams() {
   return getDynamicsRouteParams().map(item => ({ folderId: item }));
 }
 
-export default function Page(props: PageProps) {
+export function Page(props: PageProps) {
   const { params } = props;
   const bookmarks = getBookmarkByFolderIds(params.folderId);
   const folder = bookmarks.filter(bookmark => bookmark.type === 'folder');
@@ -62,6 +63,14 @@ export default function Page(props: PageProps) {
         );
       })}
     </Tabs>
+  );
+}
+
+export default function WrapPage(props: PageProps) {
+  return (
+    <Suspense>
+      <Page {...props} />
+    </Suspense>
   );
 }
 
