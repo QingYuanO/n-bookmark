@@ -1,11 +1,12 @@
 'use client';
 
-import { Suspense } from 'react';
+import { PropsWithChildren, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { bookmarkLinks } from '@/data';
 import { Ghost } from 'lucide-react';
 
 import BookmarkLinkCard from '@/components/BookmarkLinkCard';
+import CardWrap from '@/components/CardWrap';
 import { Card } from '@/components/ui/card';
 
 function SearchParamsPage() {
@@ -24,11 +25,11 @@ function SearchParamsPage() {
     );
   }
   return (
-    <Card className="grid h-[calc(100vh-8rem)] grid-cols-1 place-content-start gap-5 overflow-auto p-5 sm:h-[calc(100vh-8rem)] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
+    <CardWrap className="h-[calc(100vh-8rem)] sm:h-[calc(100vh-8rem)]">
       {filerBookmarkLinks.map((item, index) => (
         <BookmarkLinkCard key={index} bookmarkLink={item} />
       ))}
-    </Card>
+    </CardWrap>
   );
 }
 

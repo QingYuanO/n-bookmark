@@ -5,6 +5,7 @@ import APP_CONFIG from '@/data/config';
 import { Bookmark as BookmarkIcon } from 'lucide-react';
 
 import BookmarkLinkCard from '@/components/BookmarkLinkCard';
+import CardWrap from '@/components/CardWrap';
 import { Card } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -68,8 +69,8 @@ export default function Page(props: PageProps) {
 
 const BookmarkList = (props: { bks: Bookmark[] }) => {
   return (
-    <Card className="grid h-[calc(100vh-11rem)] grid-cols-1 place-content-start gap-5 overflow-auto p-5 sm:h-[calc(100vh-11rem)] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
+    <CardWrap className="h-[calc(100vh-11rem)] sm:h-[calc(100vh-11rem)]">
       {props.bks.map(item => (item.type === 'bookmark' ? <BookmarkLinkCard key={item.id} bookmarkLink={item} /> : null))}
-    </Card>
+    </CardWrap>
   );
 };
