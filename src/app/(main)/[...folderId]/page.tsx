@@ -27,7 +27,7 @@ export async function generateStaticParams() {
   return getDynamicsRouteParams().map(item => ({ folderId: item }));
 }
 
-export function Page(props: PageProps) {
+export default function Page(props: PageProps) {
   const { params } = props;
   const bookmarks = getBookmarkByFolderIds(params.folderId);
   const folder = bookmarks.filter(bookmark => bookmark.type === 'folder');
@@ -63,14 +63,6 @@ export function Page(props: PageProps) {
         );
       })}
     </Tabs>
-  );
-}
-
-export default function WrapPage(props: PageProps) {
-  return (
-    <Suspense>
-      <Page {...props} />
-    </Suspense>
   );
 }
 

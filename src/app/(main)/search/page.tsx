@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { bookmarkLinks } from '@/data';
 import { Ghost } from 'lucide-react';
@@ -7,7 +8,7 @@ import { Ghost } from 'lucide-react';
 import BookmarkLinkCard from '@/components/BookmarkLinkCard';
 import { Card } from '@/components/ui/card';
 
-export default function Page() {
+function SearchParamsPage() {
   const searchParams = useSearchParams();
   const word = searchParams.get('word') ?? '';
   const filerBookmarkLinks = word
@@ -28,5 +29,13 @@ export default function Page() {
         <BookmarkLinkCard key={index} bookmarkLink={item} />
       ))}
     </Card>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense>
+      <SearchParamsPage />
+    </Suspense>
   );
 }
