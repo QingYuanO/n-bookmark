@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import APP_CONFIG from '@/data/config';
@@ -47,7 +48,9 @@ export default function Layout(props: { children: React.ReactNode }) {
           </Sheet>
 
           <AppBreadcrumb />
-          <SearchInput />
+          <Suspense>
+            <SearchInput />
+          </Suspense>
           <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
             <Github className="size-5" />
           </Button>
