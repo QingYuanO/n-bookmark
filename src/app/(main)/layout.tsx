@@ -53,7 +53,9 @@ export default function Layout(props: { children: React.ReactNode }) {
             <SearchInput />
           </Suspense>
           <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
-            <Github className="size-5" />
+            <Link href="https://github.com/QingYuanO/n-bookmark" target="_blank">
+              <Github className="size-5" />
+            </Link>
           </Button>
           <ThemeToggleBtn />
         </header>
