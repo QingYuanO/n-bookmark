@@ -4,7 +4,7 @@
 <img width="780" alt="BookmarkOcean" src="https://github.com/user-attachments/assets/16ede6fb-4912-4935-abc9-cced8e4b237f">
 
 ## 准备 bookmark.json
-[点击此处](https://t.bookmarkocean.site/)，根据指引下载 bookmark.json 文件。让后进入[/src/data/bookmark.json](/QingYuanO/n-bookmark/src/data/bookmark.json)目录，点击又上角<img width="16" alt="bun" src="https://github.com/user-attachments/assets/bffb2187-554e-44bf-884f-f33d06be9dca">按钮，进入编辑状态。
+[点击此处](https://t.bookmarkocean.site/)，根据指引下载 bookmark.json 文件。让后进入```/src/data/bookmark.json```目录，点击又上角<img width="16" alt="bun" src="https://github.com/user-attachments/assets/bffb2187-554e-44bf-884f-f33d06be9dca">按钮，进入编辑状态。
 然后打开下载的bookmark.json 文件，复制内容进```src/data/bookmark.json```。
 
 ## Deploy
