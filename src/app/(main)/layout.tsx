@@ -10,6 +10,7 @@ import AsideNav from '@/components/AsideNav';
 import SearchInput, { SkeletonSearchInput } from '@/components/SearchInput';
 import ThemeToggleBtn from '@/components/ThemeToggleBtn';
 import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -20,7 +21,9 @@ export default function Layout(props: { children: React.ReactNode }) {
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-48 flex-col border-r bg-background sm:flex">
         <AppTitle className="p-4" />
-        <AsideNav className="overflow-auto pt-0" />
+        <ScrollArea className="overflow-auto">
+          <AsideNav className="pt-0" />
+        </ScrollArea>
       </aside>
 
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-48">
