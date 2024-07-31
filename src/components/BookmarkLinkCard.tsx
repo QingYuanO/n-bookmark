@@ -38,9 +38,9 @@ export const SkeletonBookmarkLinkCard = () => {
       <CardHeader className="px-2.5 py-4">
         <CardTitle className="flex w-full cursor-pointer items-center">
           <Skeleton className="mr-1 size-4 rounded-full" />
-          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-[22px] w-full" />
         </CardTitle>
-        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-[22px] w-full" />
       </CardHeader>
     </Card>
   );
