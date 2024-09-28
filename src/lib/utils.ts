@@ -13,9 +13,8 @@ export function cn(...inputs: ClassValue[]) {
  */
 // 函数：将字符串中的中文替换为拼音
 export function replaceChineseWithPinyin(inputString: string) {
-
-  // 替换输入字符串中的 / 符号为 -
-  inputString = inputString.replace(/\//g, '&');
+  // 替换输入字符串中的 / 空格 符号为 -
+  inputString = inputString.replace(/[\/\s\?\&\=\#\%\+]/g, '-');
   // 检查字符串中是否包含中文字符的正则表达式
   const containsChinese = /[\u4e00-\u9fa5]/;
   let result = '';
